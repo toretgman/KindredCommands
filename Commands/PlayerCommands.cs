@@ -14,14 +14,14 @@ namespace KindredCommands.Commands;
 
 public static class PlayerCommands
 {
-	[Command("rename", description: "Rename another player.", adminOnly: true)]
+	[Command("改名", description: "Rename another player.", adminOnly: false)]
 	public static void RenameOther(ChatCommandContext ctx, FoundPlayer player, NewName newName)
 	{
 		Core.Players.RenamePlayer(player.Value.UserEntity, player.Value.CharEntity, newName.Name);
 		ctx.Reply($"Renamed {Format.B(player.Value.CharacterName.ToString())} -> {Format.B(newName.Name.ToString())}");
 	}
 
-	[Command("rename", description: "Rename yourself.", adminOnly: true)]
+	[Command("改名", description: "Rename yourself.", adminOnly: false)]
 	public static void RenameMe(ChatCommandContext ctx, NewName newName)
 	{
 		Core.Players.RenamePlayer(ctx.Event.SenderUserEntity, ctx.Event.SenderCharacterEntity, newName.Name);
