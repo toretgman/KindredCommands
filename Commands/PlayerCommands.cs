@@ -39,7 +39,7 @@ public static class PlayerCommands
 				throw ctx.Error("名字只能包含字母.數字和中文.");
 			}
 			var newName = new NewName(input);
-			if (newName.Name.utf8LengthInBytes > 10)
+			if (newName.Name.utf8LengthInBytes > 11)
 			{
 				throw ctx.Error("名字太長了唷.");
 			}
