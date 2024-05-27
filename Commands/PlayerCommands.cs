@@ -25,7 +25,7 @@ public static class PlayerCommands
 	public static void RenameMe(ChatCommandContext ctx, NewName newName)
 	{
 		Core.Players.RenamePlayer(ctx.Event.SenderUserEntity, ctx.Event.SenderCharacterEntity, newName.Name);
-		ctx.Reply($"Your name has been updated to: {Format.B(newName.Name.ToString())}");
+		ctx.Reply($"你的名字已更改為 : {Format.B(newName.Name.ToString())}");
 	}
 
 	public record struct NewName(FixedString64Bytes Name);
@@ -34,21 +34,21 @@ public static class PlayerCommands
 	{
 		public override NewName Parse(ICommandContext ctx, string input)
 		{
-			if (!IsAlphaNumeric(input))
+			if (!IsAlphaNumericOrChinese(input))
 			{
-				throw ctx.Error("Name must be alphanumeric.");
+				throw ctx.Error("名字只能包含字母.數字和中文.");
 			}
 			var newName = new NewName(input);
-			if (newName.Name.utf8LengthInBytes > 20)
+			if (newName.Name.utf8LengthInBytes > 10)
 			{
-				throw ctx.Error("Name too long.");
+				throw ctx.Error("名字太長了唷.");
 			}
 
 			return newName;
 		}
-		public static bool IsAlphaNumeric(string input)
+		public static bool IsAlphaNumericOrChinese(string input)
 		{
-			return Regex.IsMatch(input, @"^[a-zA-Z0-9\[\]]+$");
+			return Regex.IsMatch(input, @"^[\u4e00-\u9fa5a-zA-Z0-9\[\]]+$");
 		}
 	}
 
