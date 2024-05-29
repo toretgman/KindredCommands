@@ -68,9 +68,9 @@ Feel free to reach out to me on discord (odjit) if you have any questions or nee
 - `.gear soulshardflight`
   - will toggle Soul Shards being batbound or not on the server. (Whether or not you can fly with them). Saves out to config file to persist through restarts.
   - Shortcut: *.gear ssf*
-- `.gear soulshardlimit`
-  - will set the limit of each type soul shards a server can have. 
-  - Example: *.gear soulshardlimit 5*
+- `.gear soulshardlimit (amount) (type)`
+  - will set the limit of each type soul shards a server can have. [Monster, Dracula, Winged, Solarus]
+  - Example: *.gear soulshardlimit 5 Dracula*
   - Shortcut: *.gear ssl*
 - `.dropitems lifetime (seconds)`
   - will set the lifetime of dropped items while players are present to the seconds specified. Default is 300 seconds. This is a server wide setting, and will persist through restarts.Does not apply to shards or Player Containers.
@@ -141,7 +141,7 @@ Feel free to reach out to me on discord (odjit) if you have any questions or nee
   - Spawns a horse at your location with the specified stats and amount..
   - Example: *.spawnhorse 10 10 10 false 1*
   - Shortcut: *.sh*
-- `banishhorse`
+- `.banishhorse`
   - will teleport all ghost horses to the edge of the unused map beyond the gates in the nether. Useful for cleaning up ghost horses without killing them (despawn will kill them, making them unsummonable/dead)
   - Shortcut: *.bh*
 - `.teleporthorse (radius)`
@@ -208,9 +208,9 @@ Feel free to reach out to me on discord (odjit) if you have any questions or nee
 - `.flydown (Player)`
   - will move a player down a level in the air.																								
   - Example: *.flyup Bob*
-- `.level (Player) (Level)`
-  - will set a player's level to the level specified.																								
-  - Example: *.level Bob 5*
+- `.flylevel (Player) (Level)`
+  - will set a player's level to the flight level specified. Think of levels like floor heights.																								
+  - Example: *.flylevel Bob 5*
 - `.flyheight (Player) (Height)`
   - will set a player's fly height to the height specified.																								
   - Example: *.flyheight Bob 10*
@@ -311,4 +311,5 @@ Feel free to reach out to me on discord (odjit) if you have any questions or nee
 - `.gear soulshardstatus`
   - will list the current status of soul shards on the server. (How many of each type that have been dropped, spawned, and whether they can drop or not)
   - Shortcut: *.gear sss*
-
+- `.pace`
+  - will slow your movementspeed to whatever NPC you are closest to. It will not speed you up past normal speed. Toggle to turn off.

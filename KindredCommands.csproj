@@ -3,7 +3,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<AssemblyName>KindredCommands</AssemblyName>
 		<Description>Commands to expand Administration efforts and provide information</Description>
-		<Version>1.11.0</Version>
+		<Version>2.0.1</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 		<RootNamespace>KindredCommands</RootNamespace>
@@ -13,7 +13,13 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <None Remove="Commands\NewFile1.txt" />
+	  <None Remove="Data\English.json" />
+	  <None Remove="Data\PrefabNames.json" />
 	  <None Remove="NewFile1.txt" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Data\English.json" />
+	  <EmbeddedResource Include="Data\PrefabNames.json" />
 	</ItemGroup>
 	<ItemGroup>
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" IncludeAssets="compile" />
